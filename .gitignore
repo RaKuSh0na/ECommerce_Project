@@ -1,0 +1,17 @@
+# .gitignore
+# Angular Client
+Client/node_modules/
+Client/dist/
+Client/.angular/
+Client/.env
+
+# ASP.NET Core API
+API/bin/
+API/obj/
+API/.vs/
+API/*.user
+API/*.suo
+API/appsettings.json
+
+# Logs
+*.log
