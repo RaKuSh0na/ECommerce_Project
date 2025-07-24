@@ -1,0 +1,28 @@
+<!-- File: ECommerce/Client/src/app/component/product-description-page/product-description-page.html -->
+<div class="product-detail-page-container">
+  <div class="back-link-wrapper">
+    <button class="back-button" (click)="goBack()">
+      <i class="icon-arrow-left"></i> Back to Products
+    </button>
+  </div>
+
+  <div *ngIf="product" class="product-details-wrapper">
+    <div class="product-image-area">
+      <img [src]="product.imageUrl" alt="{{product.name}}" class="product-main-image">
+    </div>
+    <div class="product-info-area">
+      <h1 class="product-name">{{ product.name }}</h1>
+      <p class="product-price">{{ product.price | currency:'USD':'symbol' }}</p>
+      <p class="product-description">{{ product.description }}</p>
+
+      <div class="product-actions-area">
+        <button class="add-to-cart-btn" (click)="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!product" class="loading-or-error-message">
+    <p>Loading product details, please wait...</p>
+    <!-- You can add a spinner here if desired -->
+  </div>
+</div>

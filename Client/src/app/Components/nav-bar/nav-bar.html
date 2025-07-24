@@ -1,0 +1,29 @@
+<!-- File: ECommerce/Client/src/app/component/nav-bar/nav-bar.html -->
+<nav class="navbar">
+  <ul class="nav-links">
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/products">Products</a></li> <!-- Assuming /products will go to ProductListComponent -->
+    <li><a href="/">About</a></li>
+    <li><a href="/">Contact</a></li>
+    <li *ngIf="currentUser && currentUser.role === 'Admin'">
+      <a routerLink="/admin">Admin</a> <!-- <-- CRITICAL: Ensure routerLink is here -->
+    </li>
+  </ul>
+
+  <div class="auth-section">
+    <ng-container *ngIf="!currentUser">
+      <button class="auth-button" (click)="openLoginModal()">Login</button>
+      <button class="auth-button" (click)="openRegisterModal()">Register</button>
+    </ng-container>
+    <ng-container *ngIf="currentUser">
+      <span class="welcome-message">Welcome, {{ currentUser.username }}!</span>
+      <button class="auth-button logout-button" (click)="onLogout()">Logout</button>
+    </ng-container>
+  </div>
+
+  <div class="cart-icon-container" (click)="toggleCartSidebar()">
+    <i class="icon-handbag" *ngIf="!isCartSidebarOpen"></i>
+    <i class="icon-close" *ngIf="isCartSidebarOpen"></i>
+    <span class="cart-count">{{ cartItemCount }}</span>
+  </div>
+</nav>

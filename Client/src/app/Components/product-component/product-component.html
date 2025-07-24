@@ -1,0 +1,22 @@
+<!-- File: ECommerce/Client/src/app/component/product-component/product-component.html -->
+<div class="product-card">
+  <div class="product-image-wrapper" (click)="onQuickViewClick()">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image"
+         onerror="this.onerror=null; this.src='https://placehold.co/400x300/3f3f3f/ffffff?text=Image+Error';"> <!-- NEW: onerror fallback -->
+    <div class="quickview-overlay-icon">
+      <i class="icon-magnifier"></i> <!-- Simple Line Icon for Quickview -->
+      <span>Quickview</span>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">{{ product.name }}</h3>
+    <p class="product-description">{{ product.description }}</p>
+    <div class="product-price">{{ product.price | currency:'USD':'symbol' }}</div>
+  </div>
+  <div class="product-actions">
+    <button class="add-to-cart-btn" (click)="onAddToCart()" [class.added]="isAddedToCart">
+      <ng-container *ngIf="!isAddedToCart">Add to cart</ng-container>
+      <ng-container *ngIf="isAddedToCart">Added to cart!</ng-container>
+    </button>
+  </div>
+</div>

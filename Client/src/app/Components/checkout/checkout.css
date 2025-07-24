@@ -1,0 +1,334 @@
+/* File: ECommerce/Client/src/app/component/checkout-page/checkout-page.css */
+
+.checkout-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 90px auto 40px auto; /* Adjust top margin to clear fixed navbar */
+  background-color: #2b2b2b; /* Dark background */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.checkout-container h2 {
+  text-align: center;
+  color: #00fefe;
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+.checkout-content {
+  display: flex;
+  flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+  gap: 40px; /* Space between summary and form */
+  justify-content: center;
+}
+
+.order-summary,
+.checkout-form-section {
+  flex: 1 1 45%; /* Each takes roughly half width, with flexibility */
+  min-width: 300px; /* Minimum width before wrapping */
+  background-color: rgba(0, 0, 0, 0.3); /* Slightly lighter dark background */
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.order-summary h3,
+.checkout-form-section h3,
+.checkout-form-section h4 {
+  color: #00fefe;
+  margin-bottom: 20px;
+  font-size: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.cart-items-summary {
+  margin-bottom: 20px;
+  max-height: 400px; /* Limit height for scrolling if many items */
+  overflow-y: auto;
+  padding-right: 10px; /* Space for scrollbar */
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-item-image {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.summary-item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-item-name {
+  font-weight: bold;
+  font-size: 17px;
+  color: #fff;
+}
+
+.summary-item-price {
+  font-size: 15px;
+  color: #ccc;
+  margin-top: 5px;
+}
+
+.summary-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.summary-item-actions button {
+  background-color: #00fefe;
+  color: #2b2b2b;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 16px;
+}
+
+.summary-item-actions button:hover {
+  background-color: #00dada;
+}
+
+.summary-item-actions .remove-btn {
+  background: none;
+  color: #ff6b6b;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.summary-item-actions .remove-btn:hover {
+  color: #ff4d4d;
+}
+
+/* NEW: Styles for subtotal and delivery charge */
+.summary-subtotal,
+.summary-delivery-charge {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #eee;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 2px solid #00fefe;
+  color: #00fefe;
+}
+
+.empty-cart-message {
+  text-align: center;
+  color: #ccc;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.back-to-products-btn {
+  display: block;
+  width: fit-content;
+  margin: 20px auto 0 auto;
+  background-color: #00fefe;
+  color: #2b2b2b;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.back-to-products-btn:hover {
+  background-color: #00dada;
+  transform: translateY(-2px);
+}
+
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #eee;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #00fefe;
+  box-shadow: 0 0 0 2px rgba(0, 254, 254, 0.3);
+}
+
+.form-group-inline {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group-inline .form-group {
+  flex: 1;
+}
+
+.payment-options { /* This section is now less relevant but keeping for general form styling */
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.radio-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.radio-label input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #00fefe;
+}
+
+.order-message {
+  background-color: rgba(0, 254, 254, 0.2);
+  color: #00fefe;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.place-order-btn {
+  width: 100%;
+  background-color: #00fefe;
+  color: #2b2b2b;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.place-order-btn:hover {
+  background-color: #00dada;
+  transform: translateY(-2px);
+}
+
+.place-order-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .checkout-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .order-summary,
+  .checkout-form-section {
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+
+  .form-group-inline {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-group-inline .form-group {
+    flex: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-container {
+    padding: 15px;
+    margin-top: 80px;
+  }
+
+  .checkout-container h2 {
+    font-size: 28px;
+  }
+
+  .order-summary h3,
+  .checkout-form-section h3,
+  .checkout-form-section h4 {
+    font-size: 22px;
+  }
+
+  .summary-item-name {
+    font-size: 15px;
+  }
+
+  .summary-item-price {
+    font-size: 13px;
+  }
+
+  .summary-item-actions button {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .summary-item-actions .remove-btn {
+    font-size: 18px;
+  }
+
+  .summary-total {
+    font-size: 20px;
+  }
+
+  .place-order-btn {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+}

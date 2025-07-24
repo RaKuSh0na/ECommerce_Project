@@ -1,0 +1,31 @@
+<!-- File: ECommerce/Client/src/app/Components/product-list-component/product-list-component.html -->
+<div class="main-content-area">
+ 
+
+  <ng-container *ngIf="products.length > 0; else loadingOrError">
+    <div class="products-grid">
+      <app-product
+        *ngFor="let product of products"
+        [product]="product"
+        (quickView)="onQuickView($event)">
+      </app-product>
+    </div>
+  </ng-container>
+
+  <!-- This is the ng-template referenced by #loadingOrError -->
+  <ng-template #loadingOrError>
+    <div class="message-container">
+      <p *ngIf="products.length === 0 && !loading && !error">No products found. Please check your backend.</p>
+      <p *ngIf="loading">Loading products...</p>
+      <p *ngIf="error" class="error-message-text">Error loading products: {{ error }}</p>
+    </div>
+  </ng-template>
+
+  <!-- Quick View Modal/Sidebar: This is rendered conditionally by product-list-component.ts -->
+  <app-quickview
+    *ngIf="selectedQuickViewProduct"
+    [product]="selectedQuickViewProduct!"
+    [isOpen]="selectedQuickViewProduct !== null"
+    (close)="closeQuickView()">
+  </app-quickview>
+</div>

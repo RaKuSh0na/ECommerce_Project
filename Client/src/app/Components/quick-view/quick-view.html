@@ -1,0 +1,26 @@
+<!-- File: ECommerce/Client/src/app/component/quick-view/quick-view.html -->
+<div class="quickview-overlay" [class.active]="isOpen" (click)="closeQuickView()"></div>
+
+<div class="quickview-content" [class.active]="isOpen" (click)="$event.stopPropagation()">
+  <button class="close-btn" (click)="closeQuickView()">&times;</button>
+
+  <div class="product-details" *ngIf="product">
+    <div class="product-image-container">
+      <img [src]="product.imageUrl" alt="{{product.name}}">
+    </div>
+    <div class="product-info">
+      <h2>{{ product.name }}</h2>
+      <p class="price">{{ product.price | currency:'USD':'symbol' }}</p>
+      <p class="description">{{ product.description }}</p>
+
+      <div class="product-actions">
+        <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
+        <button class="view-details-btn" [routerLink]="['/product', product.id]" (click)="closeQuickView()">View Full Details</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!product" class="loading-message">
+    No product selected for quick view.
+  </div>
+</div>

@@ -1,0 +1,200 @@
+/* File: ECommerce/Client/src/app/component/cart-sidebar/cart-sidebar.css */
+
+/* Cart Overlay Styles */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 99; /* Below sidebar content, above main page content */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cart-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Main Cart Sidebar Content Container Styles */
+.cart-sidebar-content { /* <-- CHANGED: Class name to match HTML */
+  position: fixed;
+  top: 70px; /* Adjust based on your navbar height */
+  right: -400px; /* Start off-screen */
+  width: 400px; /* Width of the sidebar */
+  height: calc(100vh - 70px); /* Fill remaining height below navbar */
+  background-color: #2b2b2b; /* Dark background */
+  color: #fff;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease-in-out; /* Smooth slide animation */
+  z-index: 100; /* Ensure it's above the overlay */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
+.cart-sidebar-content.open { /* <-- CHANGED: Class name to match HTML */
+  right: 0; /* Slide into view */
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 24px;
+  color: #00fefe;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #00fefe;
+}
+
+.cart-items-list {
+  flex-grow: 1; /* Allows the list to take up available space */
+  overflow-y: auto; /* Enable scrolling for many items */
+  padding-right: 10px; /* Space for scrollbar */
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
+}
+
+.item-price {
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 2px;
+}
+
+.item-quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.item-quantity-controls button {
+  background-color: #00fefe;
+  color: #2b2b2b;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.item-quantity-controls button:hover {
+  background-color: #00dada;
+}
+
+.item-quantity-controls span {
+  margin: 0 10px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.remove-item-btn {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: color 0.2s ease;
+}
+
+.remove-item-btn:hover {
+  color: #ff4d4d;
+}
+
+.cart-summary {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #00fefe;
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: #00fefe;
+  color: #2b2b2b;
+  border: none;
+  padding: 15px 0;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+.checkout-btn:hover {
+  background-color: #00dada;
+  transform: translateY(-2px);
+}
+
+.checkout-btn:active {
+  transform: translateY(0);
+}
+
+.empty-cart-message {
+  text-align: center;
+  color: #ccc;
+  font-size: 16px;
+  padding: 20px;
+}

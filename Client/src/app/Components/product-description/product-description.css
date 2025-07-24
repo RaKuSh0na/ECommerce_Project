@@ -1,0 +1,171 @@
+/* File: ECommerce/Client/src/app/component/product-description-page/product-description-page.css */
+
+.product-detail-page-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 90px auto 40px auto; /* Adjust top margin to clear fixed navbar */
+  background-color: #2b2b2b; /* Dark background for the page content */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.back-link-wrapper {
+  margin-bottom: 30px;
+}
+
+.back-button {
+  background: none;
+  border: 1px solid #00fefe;
+  color: #00fefe;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #00fefe;
+  color: #2b2b2b;
+}
+
+.back-button i {
+  font-size: 18px;
+}
+
+.product-details-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 40px; /* Space between image and info sections */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.product-image-area {
+  flex: 1 1 45%; /* Flex-grow, flex-shrink, flex-basis */
+  min-width: 300px; /* Minimum width before wrapping */
+  text-align: center;
+}
+
+.product-main-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.product-info-area {
+  flex: 1 1 50%; /* Flex-grow, flex-shrink, flex-basis */
+  min-width: 300px; /* Minimum width before wrapping */
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-size: 36px;
+  font-weight: bold;
+  color: #00fefe;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.product-price {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.product-description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 30px;
+  flex-grow: 1; /* Allows description to take available space */
+}
+
+.product-actions-area {
+  margin-top: auto; /* Push actions to the bottom if description is short */
+}
+
+.add-to-cart-btn {
+  background-color: #00fefe;
+  color: #2b2b2b;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  width: auto; /* Adjust width based on content */
+  display: inline-block; /* Allow padding to define width */
+}
+
+.add-to-cart-btn:hover {
+  background-color: #00dada;
+  transform: translateY(-2px);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
+}
+
+.loading-or-error-message {
+  text-align: center;
+  font-size: 20px;
+  color: #ccc;
+  padding: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-details-wrapper {
+    flex-direction: column; /* Stack image and info vertically */
+    gap: 30px;
+  }
+
+  .product-image-area,
+  .product-info-area {
+    flex: 1 1 100%; /* Take full width */
+    min-width: unset;
+  }
+
+  .product-name {
+    font-size: 30px;
+  }
+
+  .product-price {
+    font-size: 24px;
+  }
+
+  .product-description {
+    font-size: 16px;
+  }
+
+  .add-to-cart-btn {
+    width: 100%; /* Full width button on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-detail-page-container {
+    padding: 15px;
+    margin-top: 80px;
+  }
+
+  .product-name {
+    font-size: 26px;
+  }
+
+  .product-price {
+    font-size: 20px;
+  }
+
+  .product-description {
+    font-size: 15px;
+  }
+}

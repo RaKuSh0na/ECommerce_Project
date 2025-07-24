@@ -1,0 +1,43 @@
+<!-- File: ECommerce/Client/src/app/component/cart-sidebar/cart-sidebar.html -->
+
+<!-- Cart Overlay: Covers the rest of the screen when sidebar is open -->
+<div class="cart-overlay" [class.open]="isSidebarOpen" (click)="closeSidebar()"></div>
+
+<!-- Cart Sidebar Content -->
+<div class="cart-sidebar-content" [class.open]="isSidebarOpen" (click)="$event.stopPropagation()">
+  <div class="sidebar-header">
+    <h3>Your Cart</h3>
+    <button class="close-btn" (click)="closeSidebar()">&times;</button>
+  </div>
+
+  <div class="cart-items-list">
+    <ng-container *ngIf="cartItems.length > 0; else emptyCart">
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <img [src]="item.product.imageUrl" alt="{{item.product.name}}" class="item-image">
+        <div class="item-details">
+          <span class="item-name">{{ item.product.name }}</span>
+          <span class="item-price">{{ item.product.price | currency:'USD':'symbol' }}</span>
+          <div class="item-quantity-controls">
+            <button (click)="updateQuantity(item.product.id, item.quantity - 1)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="updateQuantity(item.product.id, item.quantity + 1)">+</button>
+          </div>
+        </div>
+        <button class="remove-item-btn" (click)="removeFromCart(item.product.id)">
+          <i class="icon-trash"></i>
+        </button>
+      </div>
+    </ng-container>
+    <ng-template #emptyCart>
+      <p class="empty-cart-message">Your cart is empty.</p>
+    </ng-template>
+  </div>
+
+  <div class="cart-summary">
+    <div class="cart-total">
+      <span>Total:</span>
+      <span>{{ cartTotal | currency:'USD':'symbol' }}</span>
+    </div>
+    <button class="checkout-btn" [routerLink]="['/checkout']" (click)="closeSidebar()">Proceed to Checkout</button>
+  </div>
+</div>

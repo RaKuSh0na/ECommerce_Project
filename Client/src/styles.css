@@ -1,0 +1,76 @@
+/* File: ECommerce/Client/src/styles.css */
+
+/* Import Simple Line Icons (if not already imported globally) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css');
+
+/* Global Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif; /* Using Inter font as per instructions */
+  background-color: #1a1a1a; /* <-- CRITICAL: Set a consistent dark background for the entire page */
+  color: #fff; /* Default text color for the page */
+  overflow-x: hidden; /* Prevent horizontal scrollbar from layout shifts */
+}
+
+/* Basic reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure images don't overflow their containers */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Remove extra space below images */
+}
+
+/* General button styling for consistency (can be overridden by specific component styles) */
+button {
+  cursor: pointer;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+}
+
+button:focus {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* This is a common pattern for main content containers to clear fixed navbars and add side padding */
+/* You can apply this class to the top-level div of your main content components (e.g., product-list-page-container) */
+.main-content-area {
+  padding: 20px 30px; /* Consistent side padding */
+  max-width: 1200px;
+  margin: 90px auto 40px auto; /* Consistent top margin to clear navbar, auto for centering */
+  background-color: #2b2b2b; /* Slightly lighter dark background for content area */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive adjustments for global content area */
+@media (max-width: 992px) {
+  .main-content-area {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content-area {
+    padding: 15px;
+    margin-top: 80px; /* Adjust top margin for smaller navbar if needed */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content-area {
+    padding: 10px;
+    margin-top: 80px;
+  }
+}

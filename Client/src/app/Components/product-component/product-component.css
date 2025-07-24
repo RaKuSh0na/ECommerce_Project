@@ -1,0 +1,182 @@
+/* File: ECommerce/Client/src/app/component/product-component/product-component.css */
+
+.product-card {
+  background-color: #1e1e1e; /* Darker background for the card */
+  border-radius: 12px;
+  overflow: hidden; /* Ensures rounded corners clip image */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Stronger, deeper shadow */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  color: #fff; /* Default text color */
+  border: 1px solid rgba(0, 254, 254, 0.1); /* Subtle border for definition */
+}
+
+.product-card:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7); /* More pronounced shadow on hover */
+}
+
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* 4:3 Aspect Ratio (height is 75% of width) */
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #333; /* Fallback background for image area */
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Ensure height is 100% of parent wrapper */
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  transition: transform 0.3s ease;
+}
+
+.product-image-wrapper:hover .product-image {
+  transform: scale(1.05); /* Slight zoom on image hover */
+}
+
+.quickview-overlay-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #00fefe; /* Icon color */
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.product-image-wrapper:hover .quickview-overlay-icon {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.quickview-overlay-icon i {
+  font-size: 40px; /* Larger icon */
+  margin-bottom: 10px;
+}
+
+.product-info {
+  padding: 20px;
+  flex-grow: 1; /* Allows info section to take available space */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.product-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #00fefe; /* Cyan color for product name */
+  line-height: 1.2;
+}
+
+.product-description {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  flex-grow: 1; /* Push price and button to bottom */
+  /* CRITICAL FIX: Limit to two lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: auto; /* Push price to bottom of info area */
+  margin-bottom: 15px;
+}
+
+.product-actions {
+  padding: 0 20px 20px 20px; /* Padding only at bottom and sides */
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  background-color: #00fefe; /* Cyan button */
+  color: #1e1e1e; /* Dark text on button */
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #00dada; /* Slightly darker cyan on hover */
+  transform: translateY(-3px); /* More pronounced lift on hover */
+  box-shadow: 0 5px 15px rgba(0, 254, 254, 0.3); /* Cyan shadow on hover */
+}
+
+.add-to-cart-btn.added {
+  background-color: #4CAF50; /* Green when added */
+  color: #fff;
+  cursor: default;
+}
+
+.add-to-cart-btn.added:hover {
+  background-color: #4CAF50; /* Keep green on hover when added */
+  transform: none; /* No lift when added */
+  box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-card {
+    border-radius: 10px;
+  }
+  .product-name {
+    font-size: 20px;
+  }
+  .product-price {
+    font-size: 20px;
+  }
+  .product-description {
+    font-size: 13px;
+  }
+  .add-to-cart-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    border-radius: 8px;
+  }
+  .product-info {
+    padding: 15px;
+  }
+  .product-name {
+    font-size: 18px;
+  }
+  .product-price {
+    font-size: 18px;
+  }
+  .product-actions {
+    padding: 0 15px 15px 15px;
+  }
+}

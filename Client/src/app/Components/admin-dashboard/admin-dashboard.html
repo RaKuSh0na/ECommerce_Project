@@ -1,0 +1,24 @@
+<!-- File: ECommerce/Client/src/app/component/admin-dashboard/admin-dashboard.component.html -->
+<div class="admin-dashboard-container">
+    <h1>Admin Dashboard</h1>
+    <p>Welcome to the administration panel. From here, you can manage various aspects of your e-commerce store.</p>
+
+    <div class="admin-actions-grid">
+        <div class="action-card">
+            <h3>Product Management</h3>
+            <p>Add, edit, or delete products in your store.</p>
+            <button class="action-button" [routerLink]="['/admin/products']">Manage Products</button>
+            <!-- Corrected routerLink -->
+        </div>
+        <div class="action-card">
+            <h3>Order Management</h3>
+            <p>View and update customer orders.</p>
+            <button class="action-button disabled">View Orders (Coming Soon)</button>
+        </div>
+        <div class="action-card">
+            <h3>User Management</h3>
+            <p>Manage user accounts and roles.</p>
+            <button class="action-button disabled">Manage Users (Coming Soon)</button>
+        </div>
+    </div>
+</div>

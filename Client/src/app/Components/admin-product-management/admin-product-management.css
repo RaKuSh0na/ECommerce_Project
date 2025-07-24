@@ -1,0 +1,243 @@
+    /* File: ECommerce/Client/src/app/component/admin-product-management/admin-product-management.component.css */
+    .admin-product-management-container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 90px auto 40px auto;
+      background-color: #2b2b2b;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      color: #fff;
+    }
+
+    .admin-product-management-container h1 {
+      text-align: center;
+      color: #00fefe;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    .product-form-section,
+    .product-list-section {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+    }
+
+    .product-form-section h3,
+    .product-list-section h3 {
+      color: #00fefe;
+      margin-bottom: 20px;
+      font-size: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+    }
+
+    /* Form Styles (reused from checkout, but specific to this component) */
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #eee;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #00fefe;
+      box-shadow: 0 0 0 2px rgba(0, 254, 254, 0.3);
+    }
+
+    .form-group-inline {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-group-inline .form-group {
+      flex: 1;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+      justify-content: flex-end; /* Align buttons to the right */
+    }
+
+    .save-button,
+    .cancel-button,
+    .add-new-button {
+      background-color: #00fefe;
+      color: #2b2b2b;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+
+    .save-button:hover,
+    .add-new-button:hover {
+      background-color: #00dada;
+      transform: translateY(-2px);
+    }
+
+    .cancel-button {
+      background-color: #555;
+      color: #fff;
+    }
+
+    .cancel-button:hover {
+      background-color: #777;
+      transform: translateY(-2px);
+    }
+
+    /* Product Table Styles */
+    .product-table-responsive {
+      overflow-x: auto; /* Enable horizontal scrolling on small screens */
+    }
+
+    .product-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .product-table th,
+    .product-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .product-table th {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #00fefe;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .product-table td {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #eee;
+      font-size: 14px;
+    }
+
+    .product-table tbody tr:hover td {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .action-buttons button {
+      background-color: #00fefe;
+      color: #2b2b2b;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      margin-right: 10px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .action-buttons button:hover {
+      background-color: #00dada;
+      transform: translateY(-1px);
+    }
+
+    .action-buttons .delete-button {
+      background-color: #ff6b6b;
+      color: #fff;
+    }
+
+    .action-buttons .delete-button:hover {
+      background-color: #ff4d4d;
+    }
+
+    .no-products-message {
+      text-align: center;
+      padding: 30px;
+      color: #ccc;
+      font-style: italic;
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .admin-product-management-container h1 {
+        font-size: 28px;
+      }
+      .product-form-section,
+      .product-list-section {
+        padding: 20px;
+      }
+      .form-group-inline {
+        flex-direction: column;
+        gap: 0;
+      }
+      .form-group-inline .form-group {
+        flex: none;
+      }
+      .form-actions {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+      }
+      .save-button,
+      .cancel-button,
+      .add-new-button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .admin-product-management-container {
+        padding: 15px;
+        margin-top: 80px;
+      }
+      .admin-product-management-container h1 {
+        font-size: 24px;
+      }
+      .product-table th,
+      .product-table td {
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+      .action-buttons button {
+        padding: 6px 10px;
+        font-size: 13px;
+        margin-right: 5px;
+      }
+    }
+    

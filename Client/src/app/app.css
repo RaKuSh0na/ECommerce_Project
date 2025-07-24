@@ -1,0 +1,27 @@
+/* Global font and background */
+body {
+  background-color: #0f0f0f;
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global text color fix (you can override in components if needed) */
+h1, h2, h3, h4, h5, h6, p, span, div {
+  color: #fff;
+}
+
+/* Utility class for full-width container if needed */
+.full-width {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Fix for product text color globally */
+.product h2,
+.product .description,
+.product .price {
+  color: #fff; /* You can change to #00fefe if you want theme color */
+}
