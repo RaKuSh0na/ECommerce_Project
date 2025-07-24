@@ -14,4 +14,6 @@ API/*.suo
 API/appsettings.json
 
 # Logs
-*.log
+*.log*.db
+*.db-shm
+*.db-wal
